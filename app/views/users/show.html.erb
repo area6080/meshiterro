@@ -1,5 +1,5 @@
 <!--user_path-->
-<h1>Users#show</h1>
+<h1>ユーザーの詳細</h1>
 
 <div>
   <h3><%= @user.name %></h3>
@@ -10,6 +10,7 @@
   <% end %>
 </div>
 
+<!--投稿一覧-->
 <% @post_images.each do |post_image| %>
 <div>
   <%= link_to post_image_path(post_image.id) do %>
@@ -19,5 +20,6 @@
   <p>ショップ名：<%= post_image.shop_name %></p>
   <p>説明：<%= post_image.caption %></p>
   <p>ユーザーネーム：<%= post_image.user.name %></p>
+  <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
 </div>
 <% end %>
