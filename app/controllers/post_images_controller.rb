@@ -15,7 +15,15 @@ class PostImagesController < ApplicationController
 
   def index
     # @post_images = PostImage.all  kaminari前
-    @post_images = PostImage.page(params[:page])
+    respond_to do |format|
+      format.html do
+        @post_images = PostImage.page(params[:page])
+      end
+      format.json do
+        @post_images = PostImage.all
+        # 今回は実装にかかる時間などを考慮して、jsonでのリクエスト時に全てのデータを取得するようになっています
+      end
+    end
   end
 
   def show
