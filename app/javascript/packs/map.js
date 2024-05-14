@@ -13,12 +13,12 @@ async function initMap() {
 
   //。デフォルトを大阪城に　数値が小さいほうがロング 一回のクリック分
   map = new Map(document.getElementById("map"), {
-    center: { lat: 34.687295, lng: 135.525809 }, 
+    center: { lat: 34.687295, lng: 135.525809 },
     zoom: 14,
     mapId: "DEMO_MAP_ID",
     mapTypeControl: false
   });
-  
+
   try {
     const response = await fetch("/post_images.json");
     if (!response.ok) throw new Error('Network response was not ok');
@@ -31,12 +31,52 @@ async function initMap() {
       const longitude = item.longitude;
       const shopName = item.shop_name;
 
+      const userImage = item.user.image;
+      const userName = item.user.name;
+      const postImage = item.image;
+      const address = item.address;
+      const caption = item.caption;
+
       const marker = new google.maps.marker.AdvancedMarkerElement ({
         position: { lat: latitude, lng: longitude },
         map,
         title: shopName,
         // 他の任意のオプションもここに追加可能
       });
+      
+      
+
+      const contentString = `
+        <div class="information container p-0">
+          <div class="mb-3 d-flex align-items-center">
+            <img class="rounded-circle mr-2" src="${userImage}" width="40" height="40">
+            <p class="lead m-0 font-weight-bold">${userName}</p>
+          </div>
+          <div class="mb-3">
+            <img class="thumbnail" src="${postImage}" loading="lazy">
+          </div>
+          <div>
+            <h1 class="h5 font-weight-bold">${shopName}</h1>
+            <p class="text-muted">${address}</p>
+            <p class="lead">${caption}</p>
+          </div>
+        </div>
+      `;
+
+      const infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        maxWidth: 250,
+        ariaLabel: shopName,
+        // マウスオーバーの表示
+      });
+
+      marker.addListener("click", () => {
+          infowindow.open({
+          anchor: marker,
+          map,
+        })
+      });
+
     });
   } catch (error) {
     console.error('Error fetching or processing post images:', error);
