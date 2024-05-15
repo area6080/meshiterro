@@ -5,30 +5,30 @@
   height: calc(100vh - 88px - 179px);
 }
 
-// html,
-// body {
-//   height: 100%;
-//   margin: 0;
-//   padding: 0;
+// // html,
+// // body {
+// //   height: 100%;
+// //   margin: 0;
+// //   padding: 0;
+// // }
+
+// .map-control {
+//   // background-color: #fff;
+//   // border: 1px solid #ccc;
+//   margin: 10px;
+//   display: none;
+//   // 枠自体のCSS 削除
 // }
 
-.map-control {
-  // background-color: #fff;
-  // border: 1px solid #ccc;
-  margin: 10px;
-  display: none;
-  // 枠自体のCSS 削除
-}
-
-#map .map-control {
-  display: block;
-  // 二つを重ねる
-}
-
-// .selector-control {
-//   font-size: 12px;
-//   line-height: 30px;
-//   padding-left: 8px;
-//   padding-right: 8px;
-//   // 枠内のcss
+// #map .map-control {
+//   display: block;
+//   // 二つを重ねる
 // }
+
+// // .selector-control {
+// //   font-size: 12px;
+// //   line-height: 30px;
+// //   padding-left: 8px;
+// //   padding-right: 8px;
+// //   // 枠内のcss
+// // }
