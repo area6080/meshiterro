@@ -20,16 +20,10 @@ async function initMap() {
     mapTypeControl: false
   });
   
-  const styleControl = document.getElementById("style-selector-control");
-  
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(styleControl);
-  
-  const styleSelector = document.getElementById("style-selector");
-  
-    map.setOptions({ styles: styles[styleSelector.value] });
+  const selector = document.getElementById("selector");
 
-  styleSelector.addEventListener("change", () => {
-    map.setOptions({ styles: styles[styleSelector.value] });
+  selector.addEventListener("change", () => {
+    map.setOptions({ styles: styles[selector.value] });
   });
   
   const styles = {

@@ -5,31 +5,30 @@
   height: calc(100vh - 88px - 179px);
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+// html,
+// body {
+//   height: 100%;
+//   margin: 0;
+//   padding: 0;
+// }
 
 .map-control {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
-  font-family: "Roboto", "sans-serif";
+  // background-color: #fff;
+  // border: 1px solid #ccc;
   margin: 10px;
-  /* Hide the control initially, to prevent it from appearing
-     before the map loads. */
   display: none;
+  // 枠自体のCSS 削除
 }
 
 #map .map-control {
   display: block;
+  // 二つを重ねる
 }
 
-.selector-control {
-  font-size: 14px;
-  line-height: 30px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
+// .selector-control {
+//   font-size: 12px;
+//   line-height: 30px;
+//   padding-left: 8px;
+//   padding-right: 8px;
+//   // 枠内のcss
+// }
