@@ -17,7 +17,8 @@ async function initMap() {
     center: { lat: 34.687295, lng: 135.525809 },
     zoom: 14,
     mapId: "12e54403ce86cc3",
-    mapTypeControl: false
+    mapTypeControl: false,
+
   });
   
   try {
